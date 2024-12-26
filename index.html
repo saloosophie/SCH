@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>SCH</title>
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpqGK1RedRxH0-hzBdcBDs-JOdOiX5Uz8GMg&s">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+</head>
+<body>
+    <!-- Album 1 -->
+    <div class="playlist">
+      <h2>SCH - JVLIVS</h2>
+      <img src="https://cd1.rap2france.com/public/medias/news/10337/660x330/mdpi/sch-annonce-qu-il-voudrait-faire-un-film-pour-la-suite-de-jvlivs-video-1615882143.jpg" alt="Cover">
+      <ul>
+        <li>
+          <h3>SCH - Le Code</h3>
+          <button onclick="playAudio('audio1')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio1" src="/SCH - Le Code (Clip officiel).mp3"></audio>
+        </li>
+        <li>
+          <h3>SCH - Ciel Rouge</h3>
+          <button onclick="playAudio('audio2')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio2" src="/SCH - Ciel Rouge.m4a"></audio>
+        </li>
+        <li>
+          <h3>SCH - Bénéfice</h3>
+          <button onclick="playAudio('audio3')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio3" src="/Bénéfice.m4a"></audio>
+        </li>
+        <div class="album-controls">
+          <button onclick="pauseAlbumAudios(['playlist'])" class="pause-btn">
+            <i class="fas fa-pause"></i> Pause 
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Album 2 -->
+    <div class="playlist">
+      <h2>SCH - JVLIVS II</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRihV6U4rNLSCtixfybMe7p7NJZGK3QvwKAcA&s" alt="Cover">
+      <ul>
+        <li>
+          <h3>SCH - Zone à danger</h3>
+          <button onclick="playAudio('audio6')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio6" src="/Zone à danger.m4a"></audio>
+        </li>
+        <li>
+          <h3>SCH - Le coup d’avance</h3>
+          <button onclick="playAudio('audio7')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio7" src="/Le coup d’avance.m4a"></audio>
+        </li>
+        <li>
+          <h3>SCH - Raisons</h3>
+          <button onclick="playAudio('audio8')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio8" src="/Raisons.m4a"></audio>
+        </li>
+        <div class="album-controls">
+          <button onclick="pauseAlbumAudios(['playlist'])" class="pause-btn">
+            <i class="fas fa-pause"></i> Pause
+          </button>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Album 3 -->
+    <div class="playlist">
+      <h2>SCH - JVLIVS III</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGMK0GUcxU8rFNMI1EBMQYHhVOdj8urQmCg&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQugnFFLAh_LC6f00KkgULIhsjIruW6uVJ6H5M02Y_buryKE7yGqK9_Yc9TSZg30JLNc6I&usqp=CAU" alt="Cover">
+      <ul>
+        <li>
+          <h3>SCH - SCH - La pluie</h3>
+          <button onclick="playAudio('audio9')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio9" src="/SCH - La pluie.m4a"></audio>
+        </li>
+        <li>
+          <h3>SCH - Jour d’octobre</h3>
+          <button onclick="playAudio('audio10')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio10" src="/Interlude - Jour d’octobre.m4a"></audio>
+        </li>
+        <li>
+          <h3>SCH - Lumière blanche</h3>
+          <button onclick="playAudio('audio11')"><i class="fas fa-play"></i> Play</button>
+          <audio id="audio11" src="/Lumière blanche (Ad Finem).m4a"></audio>
+        </li>
+      </ul>
+      <div class="album-controls">
+        <button onclick="pauseAlbumAudios(['playlist'])" class="pause-btn">
+          <i class="fas fa-pause"></i> Pause
+        </button>
+      </div>
+    </div>
+    <div class="animated-playlist"></div>
+  </div>
+  <script>
+function playAudio(id) {
+  const audios = document.querySelectorAll('audio');
+  audios.forEach(audio => {
+    if (audio.id !== id) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  });
+  const selectedAudio = document.getElementById(id);
+  if (selectedAudio) {
+    selectedAudio.play();
+  }
+}
+
+function pauseAlbumAudios(albumId) {
+  const albumAudios = document.querySelectorAll(`.${albumId} audio`);
+  albumAudios.forEach(audio => {
+    audio.pause();
+  });
+}
+  </script>
+</body>
+</html>
